@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Checker & Quiz | SafeByte</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="">
+        <span>SafeByte</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="details.html">Details</a></li>
+          <li><a href="tool.html" class="active">Tools</a></li>
+          <li><a href="tips.html">Tips</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="tips.html" class="header-cta">Quick-Check</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-intro">
+      <p class="hero-eyebrow">Simple Practice</p>
+      <h1>Security Practice Tools</h1>
+      <p class="intro-description">Try the password checker and phishing quiz. Nothing is sent or saved.</p>
+    </section>
+
+    <section class="tool-panel">
+      <div class="meta-row">
+        <span class="badge">Password Tool</span>
+      </div>
+      <h2>Password Strength Checker</h2>
+      <p>Enter a made-up password to get a simple strength check. Do not enter a password you really use.</p>
+
+      <label for="passwordInput">Enter a sample password:</label>
+      <input type="password" id="passwordInput" class="input-field" autocomplete="off">
+      <button type="button" id="checkPasswordBtn" class="btn btn-primary">Check password</button>
+      <p id="strengthLabel" class="strength-label" aria-live="polite">Your result will appear here.</p>
+
+    </section>
+
+    <section class="tool-panel">
+      <div class="meta-row">
+        <span class="badge badge--accent">Quick Quiz</span>
+      </div>
+      <h2>Phishing Detection Quiz</h2>
+      <p>Read the message and decide if it is safe or a phishing attempt.</p>
+
+      <div class="quiz-content">
+        <p id="quizMessage" class="quiz-message"></p>
+        <div class="quiz-buttons">
+          <button id="safeBtn" class="btn btn-outline">Safe</button>
+          <button id="phishBtn" class="btn btn-primary">Phishing</button>
+        </div>
+        <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+        <button id="nextQuizBtn" class="btn btn-accent" hidden>Next question</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>SafeByte</h4>
+        <p>A student-built digital safety awareness site.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="tool.html">Tools</a></li>
+          <li><a href="tips.html">Tips</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Disclaimer</h4>
+        <p>General awareness only. Not professional advice.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SafeByte — Student Project.</span>
+      <span>Content reviewed by the SafeByte group.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
