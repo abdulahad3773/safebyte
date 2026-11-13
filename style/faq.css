@@ -173,7 +173,7 @@ a:hover {
 
 .faq-item:hover, .faq-item:focus-within {
   border-color: var(--accent);
-  background: rgb(255, 248, 245);
+
 }
 
 .faq-question {
