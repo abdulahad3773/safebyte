@@ -125,6 +125,10 @@ a:hover {
   cursor: pointer;
 }
 
+.btn[hidden] {
+  display: none;
+}
+
 .btn-outline {
   background: transparent;
   color: var(--text);
@@ -208,7 +212,20 @@ a:hover {
 }
 
 .quiz-content {
-  max-width: 640px;
+  flex: 1;
+  min-width: 0;
+}
+
+.quiz-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  max-width: auto;
+}
+
+.quiz-next-button {
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .quiz-message {
@@ -321,6 +338,10 @@ a:hover {
 
   .tool-panel {
     padding: 20px;
+  }
+
+  .quiz-layout {
+    flex-direction: column;
   }
 
 }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Password Checker & Quiz | SafeByte</title>
   <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="stylesheet" href="tool.css">
+  <link rel="stylesheet" href="style/tool.css">
 </head>
 <body>
   <header class="site-header">
@@ -58,14 +58,16 @@
       <h2>Phishing Detection Quiz</h2>
       <p>Read the message and decide if it is safe or a phishing attempt.</p>
 
-      <div class="quiz-content">
-        <p id="quizMessage" class="quiz-message"></p>
-        <div class="quiz-buttons">
-          <button id="safeBtn" class="btn btn-outline">Safe</button>
-          <button id="phishBtn" class="btn btn-primary">Phishing</button>
+      <div class="quiz-layout">
+        <div class="quiz-content">
+          <p id="quizMessage" class="quiz-message"></p>
+          <div class="quiz-buttons">
+            <button id="safeBtn" class="btn btn-outline">Safe</button>
+            <button id="phishBtn" class="btn btn-primary">Phishing</button>
+          </div>
+          <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
         </div>
-        <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
-        <button id="nextQuizBtn" class="btn btn-accent" hidden>Next question</button>
+        <button id="nextQuizBtn" class="btn btn-accent quiz-next-button" hidden>Next question</button>
       </div>
     </section>
   </main>
