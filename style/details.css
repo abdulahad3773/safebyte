@@ -170,8 +170,9 @@ a:hover {
 }
 
 .badge--accent {
-  border-color: var(--accent);
-  background: #fff0eb;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--accent);
 }
 

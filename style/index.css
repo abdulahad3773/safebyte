@@ -138,6 +138,11 @@ a:hover {
   color: var(--text);
 }
 
+.btn-outline:hover {
+  background: var(--text);
+  color: var(--white);
+}
+
 .btn-accent, .btn-primary:hover, .header-cta:hover {
   border-color: var(--accent);
   background: var(--accent);
@@ -158,6 +163,12 @@ a:hover {
   font-size: 0.85rem;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.hero-highlight, .term-highlight {
+  padding: 0 0.08em;
+  background: var(--accent);
+  color: var(--text);
 }
 
 .hero-subtitle {
@@ -234,8 +245,9 @@ a:hover {
 }
 
 .badge--accent {
-  border-color: var(--accent);
-  background: #fff0eb;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--accent);
 }
 
