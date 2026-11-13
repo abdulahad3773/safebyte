@@ -1,4 +1,4 @@
-:root {
+* {
   --page: rgb(244, 243, 239);
   --white: rgb(255, 255, 255);
   --light: rgb(235, 233, 226);
@@ -180,7 +180,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.hero-highlight, .term-highlight {
+.highlight{
   padding: 0 2px;
   background: var(--accent);
   color: var(--text);
