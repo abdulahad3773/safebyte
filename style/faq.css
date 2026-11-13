@@ -162,6 +162,12 @@ a:hover {
 
 .faq-item {
   border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item:hover, .faq-item:focus-within {
+  border-color: var(--accent);
+  background: #fff8f5;
 }
 
 .faq-question {
