@@ -1,14 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact / Feedback | SafeByte</title>
+
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="style/common.css">
   <link rel="stylesheet" href="style/contact.css">
 </head>
+
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo">
@@ -33,29 +37,33 @@
 
   <main>
     <section class="tool-panel feedback-panel">
+
       <div class="meta-row">
         <span class="badge">Feedback</span>
       </div>
+
       <h1>Contact / Feedback</h1>
       <p>Share suggestions or topic requests for SafeByte.</p>
 
-      <!-- Updated with your Formspree endpoint and POST method -->
-      <form id="feedbackForm" action="https://formspree.io/f/mqpqabkv" method="POST" novalidate>
+      <form id="feedbackForm"
+            action="https://formspree.io/f/mqpqabkv"
+            method="POST">
+
         <div class="form-group">
           <label for="name">Name *</label>
-          <input type="text" id="name" name="name" class="input-field">
-          <span class="error" id="nameError"></span>
+          <input type="text" id="name" name="name"
+                 class="input-field" required>
         </div>
 
         <div class="form-group">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" class="input-field">
-          <span class="error" id="emailError"></span>
+          <input type="email" id="email" name="email"
+                 class="input-field" required>
         </div>
 
         <div class="form-group">
           <label for="topic">Topic *</label>
-          <select id="topic" name="topic">
+          <select id="topic" name="topic" required>
             <option value="">-- Select a topic --</option>
             <option value="phishing">Phishing</option>
             <option value="passwords">Passwords</option>
@@ -63,36 +71,44 @@
             <option value="cyberbullying">Cyberbullying</option>
             <option value="other">Other</option>
           </select>
-          <span class="error" id="topicError"></span>
         </div>
 
         <div class="form-group">
-          <label for="message">Message * (minimum 10 characters)</label>
-          <textarea id="message" name="message" rows="5"></textarea>
-          <span class="error" id="messageError"></span>
+          <label for="message">Message *</label>
+          <textarea id="message" name="message"
+                    rows="5" minlength="10" required></textarea>
         </div>
 
         <div class="form-group">
           <label class="checkbox-row">
-            <input type="checkbox" id="consent" name="consent">
-            <span>I understand this feedback will be sent to the SafeByte project team.</span>
+            <input type="checkbox" id="consent"
+                   name="consent" required>
+            <span>
+              I understand this feedback will be sent to the SafeByte project team.
+            </span>
           </label>
-          <span class="error" id="consentError"></span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        <button type="submit" class="btn btn-primary">
+          Submit Feedback
+        </button>
+
       </form>
 
-      <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      <div id="formStatus" class="form-status"
+           role="status" aria-live="polite"></div>
+
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
+
       <div class="footer-col">
         <h4>SafeByte</h4>
         <p>A student-built digital safety awareness site.<br>Made by the students.</p>
       </div>
+
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
@@ -102,17 +118,24 @@
           <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Disclaimer</h4>
         <p>General awareness only.</p>
       </div>
+
     </div>
+
     <div class="footer-bottom">
-      <span>&copy; 2026 SafeByte — ICT Project made by AbdulAhad | Hafiza Anum Liaquat | Ahmad Amjad.</span>
+      <span>
+        &copy; 2026 SafeByte — ICT Project made by AbdulAhad |
+        Hafiza Anum Liaquat | Ahmad Amjad.
+      </span>
       <span>Content reviewed by the SafeByte group.</span>
     </div>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>

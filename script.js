@@ -8,19 +8,36 @@ if (passwordInput && checkPasswordButton) {
   checkPasswordButton.addEventListener("click", function () {
     const password = passwordInput.value;
 
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecial = /[^A-Za-z0-9]/.test(password);
+
+    let score = 0;
+
+    if (hasUppercase) score++;
+    if (hasLowercase) score++;
+    if (hasNumber) score++;
+    if (hasSpecial) score++;
+
     if (password.length === 0) {
-      result.textContent = "Enter a sample password first.";
-    } else if (password.length < 8) {
-      result.textContent = "Weak: use at least 8 characters.";
-    } else if (password.length < 12) {
-      result.textContent = "Okay: try using 12 or more characters.";
+      result.textContent = "Please enter a password.";
+      result.className = "weak";
+    } else if (password.length >= 12 && score === 4) {
+      result.textContent = "Strong password! Excellent combination.";
+      result.className = "strong";
+    } else if (password.length >= 8 && score >= 3) {
+      result.textContent = "Medium password. Improve its length or complexity.";
+      result.className = "medium";
     } else {
-      result.textContent = "Good length. Use a unique password for every account.";
+      result.textContent = "Weak password. Add uppercase, lowercase, numbers and special characters.";
+      result.className = "weak";
     }
   });
 }
 
-// Phishing quiz
+
+// Quiz
 const quizMessage = document.getElementById("quizMessage");
 
 if (quizMessage) {
@@ -46,6 +63,7 @@ if (quizMessage) {
   const phishingButton = document.getElementById("phishBtn");
   const feedback = document.getElementById("quizFeedback");
   const nextButton = document.getElementById("nextQuizBtn");
+
   let questionNumber = 0;
 
   function showQuestion() {
@@ -63,6 +81,7 @@ if (quizMessage) {
 
     feedback.textContent = (isCorrect ? "Correct. " : "Not quite. ") + question.explanation;
     feedback.className = "quiz-feedback " + (isCorrect ? "correct" : "incorrect");
+
     safeButton.disabled = true;
     phishingButton.disabled = true;
     nextButton.hidden = false;
@@ -84,66 +103,39 @@ if (quizMessage) {
   showQuestion();
 }
 
-// Feedback form with Formspree AJAX integration
+
+// Form
 const feedbackForm = document.getElementById("feedbackForm");
 
 if (feedbackForm) {
-  feedbackForm.addEventListener("submit", async function (event) {
+  const formStatus = document.getElementById("formStatus");
+
+  feedbackForm.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const topic = document.getElementById("topic").value;
-    const message = document.getElementById("message").value.trim();
-    const consent = document.getElementById("consent").checked;
+    formStatus.textContent = "Sending feedback...";
+    formStatus.className = "form-status success";
 
-    const validName = name.length >= 2;
-    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const validTopic = topic !== "";
-    const validMessage = message.length >= 10;
-
-    document.getElementById("nameError").textContent = validName ? "" : "Enter at least 2 characters.";
-    document.getElementById("emailError").textContent = validEmail ? "" : "Enter a valid email.";
-    document.getElementById("topicError").textContent = validTopic ? "" : "Select a topic.";
-    document.getElementById("messageError").textContent = validMessage ? "" : "Enter at least 10 characters.";
-    document.getElementById("consentError").textContent = consent ? "" : "Please tick the confirmation box.";
-
-    const status = document.getElementById("formStatus");
-    const formIsValid = validName && validEmail && validTopic && validMessage && consent;
-
-    if (formIsValid) {
-      status.textContent = "Sending your feedback...";
-      status.className = "form-status success";
-
-      try {
-        const response = await fetch(feedbackForm.action, {
-          method: "POST",
-          body: new FormData(feedbackForm),
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          status.textContent = "Thank you! Your feedback has been sent successfully.";
-          status.className = "form-status success";
-          feedbackForm.reset();
-        } else {
-          const data = await response.json();
-          if (data.hasOwnProperty('errors')) {
-            status.textContent = data.errors.map(error => error.message).join(", ");
-          } else {
-            status.textContent = "Oops! There was a problem submitting your form.";
-          }
-          status.className = "form-status error-status";
+    try {
+      const response = await fetch(feedbackForm.action, {
+        method: "POST",
+        body: new FormData(feedbackForm),
+        headers: {
+          Accept: "application/json"
         }
-      } catch (error) {
-        status.textContent = "Network error. Please check your connection and try again.";
-        status.className = "form-status error-status";
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "Feedback sent successfully!";
+        feedbackForm.reset();
+      } else {
+        formStatus.textContent = "Something went wrong. Please try again.";
+        formStatus.className = "form-status error-status";
       }
-    } else {
-      status.textContent = "Please correct the fields marked above.";
-      status.className = "form-status error-status";
+
+    } catch {
+      formStatus.textContent = "Network error. Please try again.";
+      formStatus.className = "form-status error-status";
     }
   });
 }
