@@ -640,7 +640,83 @@ textarea:focus {
   margin-top: 4px;
   font-size: 0.85rem;
 }
+/* FAQ Accordion */
+.faq-list {
+  margin-bottom: 48px;
+  border-top: 1px solid var(--border);
+}
 
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 8px;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: normal;
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Remove default browser triangle marker */
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom chevron arrow on the right */
+.faq-question::after {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid var(--text);
+  border-bottom: 1.5px solid var(--text);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--orange);
+}
+
+.faq-question:hover::after {
+  border-color: var(--orange);
+}
+
+/* Rotate chevron upward when opened */
+.faq-item[open] .faq-question {
+  font-weight: bold;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: rotate(-135deg);
+  border-color: var(--orange);
+}
+
+.faq-answer {
+  padding: 0 32px 24px 8px;
+  color: var(--muted-text);
+}
+
+.faq-answer .tip-list {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.faq-answer li {
+  margin-bottom: 8px;
+}
+
+.faq-answer p:last-child,
+.faq-answer li:last-child {
+  margin-bottom: 0;
+}
 .form-status {
   display: none;
   margin-top: 20px;
@@ -753,6 +829,7 @@ textarea:focus {
     gap: 24px;
     padding: 40px 0;
   }
+  
 
   .content-img--hero {
     height: auto;
