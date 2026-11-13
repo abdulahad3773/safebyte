@@ -1,11 +1,11 @@
 :root {
-  --page: #f4f3ef;
-  --white: #fff;
-  --light: #ebe9e2;
-  --text: #121212;
-  --muted: #5c5c58;
-  --accent: #ff4d1c;
-  --border: #d8d6ce;
+  --page: rgb(244, 243, 239);
+  --white: rgb(255, 255, 255);
+  --light: rgb(235, 233, 226);
+  --text: rgb(18, 18, 18);
+  --muted: rgb(92, 92, 88);
+  --accent: rgb(255, 77, 28);
+  --border: rgb(216, 214, 206);
 }
 
 * {
@@ -36,17 +36,17 @@ h1, h2, h3, h4 {
 
 h1 {
   margin: 0 0 20px;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 56px;
 }
 
 h2 {
   margin: 0 0 16px;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: 36px;
 }
 
 h3 {
   margin: 0 0 10px;
-  font-size: 1.2rem;
+  font-size: 19px;
 }
 
 p {
@@ -84,7 +84,7 @@ a:hover {
 .logo {
   display: inline-flex;
   align-items: center;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -113,7 +113,13 @@ a:hover {
 }
 
 .nav-list a {
+  display: inline-block;
   color: var(--muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-list a:hover {
+  transform: translateY(-2px);
 }
 
 .nav-list a.active {
@@ -147,7 +153,7 @@ a:hover {
 
 .hero-eyebrow {
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -211,14 +217,14 @@ a:hover {
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 0.85rem;
+  font-size: 14px;
 }
 
 .badge {
   padding: 3px 8px;
   border: 1px solid var(--border);
   background: var(--light);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -226,7 +232,7 @@ a:hover {
 .badge--accent {
   padding: 0;
   border: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   color: var(--accent);
 }
 
@@ -270,7 +276,7 @@ a:hover {
 
 .footer-col a, .footer-col p {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 .footer-bottom {
@@ -283,10 +289,18 @@ a:hover {
   padding: 20px 24px;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 14px;
 }
 
 @media (max-width: 900px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
   .header-inner {
     flex-wrap: wrap;
   }
@@ -302,6 +316,14 @@ a:hover {
 }
 
 @media (max-width: 700px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
   main {
     padding-right: 16px;
     padding-left: 16px;
@@ -327,6 +349,14 @@ a:hover {
 }
 
 @media (max-width: 520px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
   .grid-3, .footer-grid {
     grid-template-columns: 1fr;
   }

@@ -1,10 +1,10 @@
 :root {
-  --page: #f4f3ef;
-  --white: #fff;
-  --text: #121212;
-  --muted: #5c5c58;
-  --accent: #ff4d1c;
-  --border: #d8d6ce;
+  --page: rgb(244, 243, 239);
+  --white: rgb(255, 255, 255);
+  --text: rgb(18, 18, 18);
+  --muted: rgb(92, 92, 88);
+  --accent: rgb(255, 77, 28);
+  --border: rgb(216, 214, 206);
 }
 
 * {
@@ -35,17 +35,17 @@ h1, h2, h3, h4 {
 
 h1 {
   margin: 0 0 20px;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 56px;
 }
 
 h2 {
   margin: 0 0 16px;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: 36px;
 }
 
 h3 {
   margin: 0 0 10px;
-  font-size: 1.2rem;
+  font-size: 19px;
 }
 
 p {
@@ -83,7 +83,7 @@ a:hover {
 .logo {
   display: inline-flex;
   align-items: center;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -112,7 +112,13 @@ a:hover {
 }
 
 .nav-list a {
+  display: inline-block;
   color: var(--muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-list a:hover {
+  transform: translateY(-2px);
 }
 
 .nav-list a.active {
@@ -146,7 +152,7 @@ a:hover {
 
 .hero-eyebrow {
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -167,13 +173,13 @@ a:hover {
 
 .faq-item:hover, .faq-item:focus-within {
   border-color: var(--accent);
-  background: #fff8f5;
+  background: rgb(255, 248, 245);
 }
 
 .faq-question {
   padding: 24px 8px;
   color: var(--text);
-  font-size: 1.15rem;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -247,7 +253,7 @@ a:hover {
 
 .footer-col a, .footer-col p {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 .footer-bottom {
@@ -260,10 +266,18 @@ a:hover {
   padding: 20px 24px;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 14px;
 }
 
 @media (max-width: 900px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
   .header-inner {
     flex-wrap: wrap;
   }
@@ -275,6 +289,14 @@ a:hover {
 }
 
 @media (max-width: 700px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
   main {
     padding-right: 16px;
     padding-left: 16px;
@@ -300,6 +322,14 @@ a:hover {
 }
 
 @media (max-width: 520px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
