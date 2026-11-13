@@ -1,26 +1,4 @@
 // Password checker
-document.querySelectorAll(".card-track").forEach(function (track) {
-  const cards = Array.from(track.children);
-  const firstGroup = document.createElement("div");
-  firstGroup.className = "card-group";
-  firstGroup.append(...cards);
-  track.replaceChildren(firstGroup);
-
-  const repeatedGroup = firstGroup.cloneNode(true);
-  repeatedGroup.setAttribute("aria-hidden", "true");
-  repeatedGroup.inert = true;
-  track.append(repeatedGroup);
-
-  function resizeMarquee() {
-    track.style.setProperty("--marquee-width", track.parentElement.clientWidth + "px");
-    const groupWidth = firstGroup.getBoundingClientRect().width;
-    track.style.setProperty("--card-duration", Math.max(15, groupWidth / 70) + "s");
-  }
-
-  resizeMarquee();
-  new ResizeObserver(resizeMarquee).observe(track.parentElement);
-});
-
 const passwordInput = document.getElementById("passwordInput");
 const checkPasswordButton = document.getElementById("checkPasswordBtn");
 
