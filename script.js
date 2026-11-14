@@ -113,6 +113,7 @@ if (feedbackForm) {
   feedbackForm.addEventListener("submit", async function(event) {
     event.preventDefault();
 
+    formStatus.parentElement.classList.add("has-status");
     formStatus.textContent = "Sending feedback...";
     formStatus.className = "form-status success";
 
